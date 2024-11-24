@@ -47,9 +47,9 @@ const register = async (req, res) => {
 };
 
 const verifyUser = async (req, res) => {
-  const { otp, token } = req.body;
+  const { otp, activationToken } = req.body;
 
-  const verify = jwt.verify(token, process.env.secretKey);
+  const verify = jwt.verify(activationToken, process.env.secretKey);
 
   if (!verify)
     return res.status(400).json({
