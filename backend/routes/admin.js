@@ -7,6 +7,8 @@ const {
   deleteLecture,
   deleteCourse,
   getAllStats,
+  getAllUser,
+  updateRole,
 } = require("../controllers/admin");
 const { uploadFiles } = require("../middlewares/multer");
 
@@ -15,4 +17,6 @@ router.post("/course/:id", userAuth, isAdmin, uploadFiles, addLecture);
 router.delete("/lecture/:id", userAuth, isAdmin, deleteLecture);
 router.delete("/course/:id", userAuth, isAdmin, deleteCourse);
 router.get("/stats", userAuth, isAdmin, getAllStats);
+router.put("/user/:id", userAuth, updateRole);
+router.get("/users", userAuth, isAdmin, getAllUser);
 module.exports = router;

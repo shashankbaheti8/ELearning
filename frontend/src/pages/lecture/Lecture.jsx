@@ -121,54 +121,8 @@ const Lecture = ({ user }) => {
     }
   };
 
-  const [completed, setCompleted] = useState("");
-  const [completedLec, setCompletedLec] = useState("");
-  const [lectLength, setLectLength] = useState("");
-  const [progress, setProgress] = useState([]);
-
-  async function fetchProgress() {
-    try {
-      const { data } = await axios.get(
-        `${serverURL}/api/user/progress?course=${params.id}`,
-        {
-          headers: {
-            token: localStorage.getItem("token"),
-          },
-        }
-      );
-
-      setCompleted(data.courseProgressPercentage);
-      setCompletedLec(data.completedLectures);
-      setLectLength(data.allLectures);
-      setProgress(data.progress);
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  const addProgress = async (id) => {
-    try {
-      const { data } = await axios.post(
-        `${serverURL}/api/user/progress?course=${params.id}&lectureId=${id}`,
-        {},
-        {
-          headers: {
-            token: localStorage.getItem("token"),
-          },
-        }
-      );
-      console.log(data.message);
-      fetchProgress();
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  console.log(progress);
-
   useEffect(() => {
     fetchLectures();
-    fetchProgress();
   }, []);
   return (
     <>
@@ -176,10 +130,6 @@ const Lecture = ({ user }) => {
         <Loading />
       ) : (
         <>
-          <div className="progress">
-            Lecture completed - {completedLec} out of {lectLength} <br />
-            <progress value={completed} max={100}></progress> {completed} %
-          </div>
           <div className="lecture-page">
             <div className="left">
               {lecLoading ? (
@@ -196,7 +146,6 @@ const Lecture = ({ user }) => {
                         disablePictureInPicture
                         disableRemotePlayback
                         autoPlay
-                        onEnded={() => addProgress(lecture._id)}
                       ></video>
                       <h1>{lecture.title}</h1>
                       <h3>{lecture.description}</h3>
@@ -272,19 +221,6 @@ const Lecture = ({ user }) => {
                       }`}
                     >
                       {i + 1}. {e.title}{" "}
-                      {progress[0] &&
-                        progress[0].completedLectures.includes(e._id) && (
-                          <span
-                            style={{
-                              background: "red",
-                              padding: "2px",
-                              borderRadius: "6px",
-                              color: "greenyellow",
-                            }}
-                          >
-                            <TiTick />
-                          </span>
-                        )}
                     </div>
                     {user && user.role === "admin" && (
                       <button

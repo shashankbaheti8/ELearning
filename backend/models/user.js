@@ -19,6 +19,10 @@ const userSchema = new mongoose.Schema(
       type: String,
       default: "user",
     },
+    mainrole: {
+      type: String,
+      default: "user",
+    },
     subscription: [
       {
         type: mongoose.Schema.Types.ObjectId,

@@ -119,10 +119,59 @@ const getAllStats = async (req, res) => {
   }
 };
 
+const getAllUser = async (req, res) => {
+  try {
+    const users = await User.find({ _id: { $ne: req.user._id } }).select(
+      "-password"
+    );
+
+    res.json({ users });
+  } catch {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+};
+
+const updateRole = async (req, res) => {
+  try {
+    if (req.user.mainrole !== "superadmin")
+      return res.status(403).json({
+        message: "This feature is only available to superadmin",
+      });
+
+    const user = await User.findById(req.params.id);
+
+    if (user.role === "user") {
+      user.role = "admin";
+      await user.save();
+
+      return res.status(200).json({
+        message: "Role updated to admin",
+      });
+    }
+
+    if (user.role === "admin") {
+      user.role = "user";
+      await user.save();
+
+      return res.status(200).json({
+        message: "Role updated",
+      });
+    }
+  } catch {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+};
+
 module.exports = {
   createCourse,
   addLecture,
   deleteLecture,
   deleteCourse,
   getAllStats,
+  getAllUser,
+  updateRole,
 };
