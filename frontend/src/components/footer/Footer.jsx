@@ -11,7 +11,7 @@ const Footer = () => {
     <footer>
       <div className="footer-content">
         <p>
-          &copy; 2024 Your E-Learning Platform. All rights reserved. <br />
+          &copy; 2025 Your E-Learning Platform. All rights reserved. <br />
           Made by{" "}
           <a href="">
             <strong>Shashank Baheti</strong>

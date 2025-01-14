@@ -52,7 +52,6 @@ const AdminUsers = ({ user }) => {
     }
   };
 
-  console.log(users);
   return (
     <Layout>
       <div className="users">
@@ -60,11 +59,11 @@ const AdminUsers = ({ user }) => {
         <table border={"black"}>
           <thead>
             <tr>
-              <td>#</td>
-              <td>name</td>
-              <td>email</td>
-              <td>role</td>
-              <td>update role</td>
+              <td></td>
+              <td>Name</td>
+              <td>Email</td>
+              <td>Role</td>
+              <td>Update role</td>
             </tr>
           </thead>
 
