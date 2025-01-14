@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Layout from "../Utils/Layout";
+import Layout from "../utils/Layout";
 import axios from "axios";
 import { serverURL } from "../../main";
 import "./admindashboard.css";
