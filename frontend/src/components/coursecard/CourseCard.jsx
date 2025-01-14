@@ -1,5 +1,5 @@
 import React from "react";
-import "./courseCard.css";
+import "./coursecard.css";
 import { serverURL } from "../../main";
 import { UserData } from "../../context/UserContext";
 import { useNavigate } from "react-router-dom";
