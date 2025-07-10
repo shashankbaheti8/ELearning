@@ -5,12 +5,14 @@ import axios from "axios";
 import { serverURL } from "../../main";
 import "./admindashboard.css";
 
-const AdminDashbord = ({ user }) => {
+const AdminDashboard = ({ user }) => {
   const navigate = useNavigate();
 
-  if (user && user.role !== "admin") return navigate("/");
+  useEffect(() => {
+    if (user && user.role !== "admin") navigate("/");
+  }, [user, navigate]);
 
-  const [stats, setStats] = useState([]);
+  const [stats, setStats] = useState({});
 
   async function fetchStats() {
     try {
@@ -29,26 +31,28 @@ const AdminDashbord = ({ user }) => {
   useEffect(() => {
     fetchStats();
   }, []);
+
   return (
-    <div>
-      <Layout>
-        <div className="main-content">
-          <div className="box">
-            <p>Total Courses</p>
-            <p>{stats.totalCoures}</p>
+    <Layout>
+      <div className="admin-dashboard-container">
+        <h2 className="dashboard-title">Admin Dashboard</h2>
+        <div className="stats-grid">
+          <div className="stats-box">
+            <h4>Total Courses</h4>
+            <p>{stats.totalCoures || 0}</p>
           </div>
-          <div className="box">
-            <p>Total Lectures</p>
-            <p>{stats.totalLectures}</p>
+          <div className="stats-box">
+            <h4>Total Lectures</h4>
+            <p>{stats.totalLectures || 0}</p>
           </div>
-          <div className="box">
-            <p>Total Users</p>
-            <p>{stats.totalUsers}</p>
+          <div className="stats-box">
+            <h4>Total Users</h4>
+            <p>{stats.totalUsers || 0}</p>
           </div>
         </div>
-      </Layout>
-    </div>
+      </div>
+    </Layout>
   );
 };
 
-export default AdminDashbord;
+export default AdminDashboard;

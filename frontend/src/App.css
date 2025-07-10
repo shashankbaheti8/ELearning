@@ -1,26 +1,131 @@
-body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
+.lecture-page {
+  display: flex;
+  gap: 2rem;
+  min-height: 100vh;
+  padding: 2rem;
+  background-color: #f4f6f8;
+  font-family: "Poppins", sans-serif;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.left {
+  flex: 2;
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+  video {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin-top: 1rem;
+  }
+
+  h3 {
+    color: #555;
+    margin-top: 0.5rem;
+  }
+}
+
+.right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 }
 
 .common-btn {
-  background-color: #8a4baf;
-  color: white;
-  padding: 10px 20px;
+  padding: 0.6rem 1rem;
+  font-weight: 500;
   border: none;
-  border-radius: 5px;
-  font-size: 18px;
+  border-radius: 8px;
+  background-color: #e67e22;
+  color: white;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-top: 10px;
+  transition: background 0.3s ease;
 
   &:hover {
-    background-color: #5f357e;
+    background-color: #d35400;
+  }
+}
+
+.lecture-form {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+  h2 {
+    margin-bottom: 1rem;
+    color: #2c3e50;
   }
 
-  @media (max-width: 768px) {
-    font-size: 16px;
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    label {
+      font-size: 0.9rem;
+      color: #333;
+    }
+
+    input[type="text"],
+    input[type="file"] {
+      padding: 0.6rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 0.95rem;
+    }
+
+    video {
+      margin-top: 1rem;
+      border-radius: 8px;
+    }
   }
+}
+
+.lecture-number {
+  background-color: white;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: #e67e22;
+    color: white;
+  }
+}
+
+.active {
+  background-color: #e67e22;
+  color: white;
+  font-weight: 600;
+}
+
+.progress {
+  width: 20%;
+  background-color: #333;
+  padding: 6px;
+  border-radius: 5px;
+  margin: 1rem auto;
+  text-align: center;
+  color: white;
 }

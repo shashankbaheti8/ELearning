@@ -8,25 +8,19 @@ import {
 
 const Footer = () => {
   return (
-    <footer>
+    <footer className="site-footer">
       <div className="footer-content">
         <p>
           &copy; 2025 Your E-Learning Platform. All rights reserved. <br />
           Made by{" "}
-          <a href="">
+          <a href="https://www.linkedin.com/in/shashankbaheti8" target="_blank" rel="noreferrer">
             <strong>Shashank Baheti</strong>
           </a>
         </p>
         <div className="social-links">
-          <a href="">
-            <AiFillFacebook />
-          </a>
-          <a href="">
-            <AiFillTwitterSquare />
-          </a>
-          <a href="">
-            <AiFillInstagram />
-          </a>
+          <a href="#"><AiFillFacebook /></a>
+          <a href="#"><AiFillTwitterSquare /></a>
+          <a href="#"><AiFillInstagram /></a>
         </div>
       </div>
     </footer>

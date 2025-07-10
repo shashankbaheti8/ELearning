@@ -50,10 +50,6 @@ const deleteLecture = async (req, res) => {
   try {
     const lecture = await Lecture.findById(req.params.id);
 
-    rm(lecture.video, () => {
-      console.log("Video deleted");
-    });
-
     await lecture.deleteOne();
 
     res.json({ message: "Lecture Deleted" });
@@ -75,13 +71,8 @@ const deleteCourse = async (req, res) => {
     await Promise.all(
       lectures.map(async (lecture) => {
         await unlinkAsync(lecture.video);
-        console.log("video deleted");
       })
     );
-
-    rm(course.image, () => {
-      console.log("image deleted");
-    });
 
     await Lecture.find({ course: req.params.id }).deleteMany();
     await course.deleteOne();
@@ -147,7 +138,7 @@ const updateRole = async (req, res) => {
       await user.save();
 
       return res.status(200).json({
-        message: "Role updated to admin",
+        message: `Role of ${user.name} updated to admin`,
       });
     }
 
@@ -156,7 +147,7 @@ const updateRole = async (req, res) => {
       await user.save();
 
       return res.status(200).json({
-        message: "Role updated",
+        message: `Role of ${user.name} updated to user`,
       });
     }
   } catch {

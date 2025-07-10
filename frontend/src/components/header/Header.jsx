@@ -1,21 +1,22 @@
 import React from "react";
-import "./header.css";
 import { Link } from "react-router-dom";
+import "./Header.css";
 
 const Header = ({ isAuth }) => {
   return (
-    <header>
-      <div className="logo">E-Learning</div>
-
-      <div className="link">
-        <Link to={"/"}>Home</Link>
-        <Link to={"/courses"}>Courses</Link>
-        <Link to={"/about"}>About</Link>
-        {isAuth ? (
-          <Link to={"/account"}>Account</Link>
-        ) : (
-          <Link to={"/login"}>Login</Link>
-        )}
+    <header className="main-header">
+      <div className="container">
+        <div className="logo">E-Learning</div>
+        <nav className="nav-links">
+          <Link to="/">Home</Link>
+          <Link to="/courses">Courses</Link>
+          <Link to="/about">About</Link>
+          {isAuth ? (
+            <Link to="/account">Account</Link>
+          ) : (
+            <Link to="/login">Login / Register</Link>
+          )}
+        </nav>
       </div>
     </header>
   );

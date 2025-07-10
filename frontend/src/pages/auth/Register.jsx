@@ -4,16 +4,28 @@ import { Link, useNavigate } from "react-router-dom";
 import { UserData } from "../../context/UserContext";
 
 const Register = () => {
-  const navigate = useNavigate();
   const { btnLoading, registerUser } = UserData();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
+  const navigate = useNavigate();
+  const [form, setForm] = useState({ name: "", email: "", password: "" });
+  const [showPassword, setShowPassword] = useState(false);
+  const [errors, setErrors] = useState({});
+
+  const validate = () => {
+    const newErrors = {};
+    if (!form.name) newErrors.name = "Name is required";
+    if (!form.email) newErrors.email = "Email is required";
+    if (!form.password) newErrors.password = "Password is required";
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    await registerUser(name, email, password, navigate);
+    if (!validate()) return;
+    console.log(form);
+    await registerUser(form.name, form.email, form.password, navigate);
   };
+
   return (
     <div className="auth-page">
       <div className="auth-form">
@@ -21,34 +33,44 @@ const Register = () => {
         <form onSubmit={submitHandler}>
           <label htmlFor="name">Name</label>
           <input
+            id="name"
             type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
+            value={form.name}
+            onChange={(e) => setForm({ ...form, name: e.target.value })}
           />
+          {errors.name && <div className="error">{errors.name}</div>}
 
           <label htmlFor="email">Email</label>
           <input
+            id="email"
             type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
+            value={form.email}
+            onChange={(e) => setForm({ ...form, email: e.target.value })}
           />
+          {errors.email && <div className="error">{errors.email}</div>}
 
           <label htmlFor="password">Password</label>
           <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
+            id="password"
+            type={showPassword ? "text" : "password"}
+            value={form.password}
+            onChange={(e) => setForm({ ...form, password: e.target.value })}
           />
+          {errors.password && <div className="error">{errors.password}</div>}
 
-          <button type="submit" disabled={btnLoading} className="common-btn">
-            {btnLoading ? "Please Wait..." : "Register"}
+          <div
+            className="toggle-password"
+            onClick={() => setShowPassword((prev) => !prev)}
+          >
+            {showPassword ? "Hide Password" : "Show Password"}
+          </div>
+
+          <button className="common-btn" disabled={btnLoading}>
+            {btnLoading ? "Please wait..." : "Register"}
           </button>
         </form>
         <p>
-          have an account? <Link to="/login">Login</Link>
+          Already have an account? <Link to="/login">Login</Link>
         </p>
       </div>
     </div>

@@ -1,41 +1,95 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+
 .auth-page {
+  font-family: "Poppins", sans-serif;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 80vh;
+  height: 100vh;
+  background-color: #f4f6f8;
+  padding: 20px;
+}
+
+.auth-form {
   background-color: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+  box-sizing: border-box;
+}
 
-  .auth-form {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: 300px;
+.auth-form h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #2c3e50;
+}
 
-    h2 {
-      font-size: 24px;
-      color: #8a4baf;
-      margin-bottom: 15px;
-    }
+.auth-form form {
+  display: flex;
+  flex-direction: column;
+}
 
-    form {
-      text-align: left;
+.auth-form label {
+  font-weight: 600;
+  margin-bottom: 5px;
+  cursor: pointer;
+  color: #333;
+}
 
-      label {
-        display: block;
-        margin-bottom: 5px;
-        font-size: 14px;
-        color: #333;
-      }
+.auth-form input {
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-bottom: 15px;
+  font-size: 14px;
+  width: 100%;
+}
 
-      input {
-        width: 92%;
-        padding: 10px;
-        margin-bottom: 15px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-      }
-    }
-  }
+.auth-form .error {
+  color: red;
+  font-size: 12px;
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+
+.toggle-password {
+  margin-top: -10px;
+  margin-bottom: 15px;
+  font-size: 12px;
+  color: #666;
+  cursor: pointer;
+  align-self: flex-end;
+}
+
+.common-btn {
+  background-color: #e67e22;
+  border: none;
+  color: white;
+  padding: 12px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.common-btn:hover {
+  background-color: #d35400;
+}
+
+.auth-form p {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.auth-form a {
+  color: #8e44ad;
+  text-decoration: none;
+}
+
+.auth-form a:hover {
+  text-decoration: underline;
 }

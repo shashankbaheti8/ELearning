@@ -5,14 +5,20 @@ import CourseCard from "../../components/coursecard/CourseCard";
 
 const Dashbord = () => {
   const { mycourse } = CourseData();
+
   return (
     <div className="student-dashboard">
-      <h2>All Enrolled Courses</h2>
+      <h2>Your Enrolled Courses</h2>
+      <p className="subtitle">Keep learning. Keep growing. 🚀</p>
+
       <div className="dashboard-content">
         {mycourse && mycourse.length > 0 ? (
           mycourse.map((e) => <CourseCard key={e._id} course={e} />)
         ) : (
-          <p>No course Enrolled Yet</p>
+          <div className="no-course">
+            <img src="/no-courses.svg" alt="No courses" />
+            <p>No courses enrolled yet. Start exploring!</p>
+          </div>
         )}
       </div>
     </div>

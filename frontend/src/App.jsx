@@ -5,6 +5,8 @@ import Home from "./pages/home/Home";
 import Header from "./components/header/Header";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
+import ForgotPassword from "./pages/auth/ForgotPassword";
+import ResetPassword from "./pages/auth/ResetPassword";
 import Verify from "./pages/auth/Verify";
 import Footer from "./components/footer/Footer";
 import About from "./pages/about/About";
@@ -35,14 +37,22 @@ const App = () => {
             <Route path="/courses" element={<Courses />} />
             <Route
               path="/account"
-              element={isAuth ? <Account user={user} /> : <Login />}
+              element={isAuth ? <Account user={user} /> : <Login />}z
             />
             <Route path="/login" element={isAuth ? <Home /> : <Login />} />
             <Route
               path="/register"
               element={isAuth ? <Home /> : <Register />}
             />
-            <Route path="/verify" element={<Verify />}></Route>
+            <Route path="/verify" element={isAuth ? <Home /> : <Verify />} />
+            <Route
+              path="/forgot"
+              element={isAuth ? <Home /> : <ForgotPassword />}
+            />
+            <Route
+              path="/reset-password/:token"
+              element={isAuth ? <Home /> : <ResetPassword />}
+            />
             <Route
               path="/course/:id"
               element={isAuth ? <CourseDescription user={user} /> : <Login />}

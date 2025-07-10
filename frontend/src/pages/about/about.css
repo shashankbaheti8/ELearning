@@ -1,23 +1,202 @@
-.about {
-  padding: 80px 0;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+.about-section {
+  background-color: #F4F6F8;
+  padding: 80px 20px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.about-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+/* Intro */
+.intro {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
   text-align: center;
-  min-height: 55vh;
+  animation: fadeIn 0.8s ease-in-out;
+}
 
-  .about-content {
-    max-width: 800px;
-    margin: 0 auto;
+.intro h2 {
+  font-size: 2.5rem;
+  color: #2C3E50;
+  margin-bottom: 1rem;
+}
 
-    h2 {
-      font-size: 32px;
-      color: #8a4baf;
-      margin-bottom: 20px;
-    }
+.intro p {
+  font-size: 1.1rem;
+  color: #333;
+  line-height: 1.6;
+}
 
-    p {
-        
-      font-size: 16px;
-      color: #333;
-      line-height: 1.6;
-    }
+/* Mission & Vision */
+.about-extra {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.about-extra .mission,
+.about-extra .vision {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.about-extra .mission:hover,
+.about-extra .vision:hover {
+  transform: translateY(-5px);
+}
+
+.about-extra h3 {
+  color: #2C3E50;
+  margin-bottom: 0.75rem;
+}
+
+/* Why Choose Us */
+.why-choose-us {
+  text-align: center;
+}
+
+.why-choose-us h3 {
+  font-size: 2rem;
+  color: #2C3E50;
+  margin-bottom: 2rem;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+}
+
+.feature-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+}
+
+.feature-card .icon {
+  font-size: 2.5rem;
+  color: #E67E22;
+  margin-bottom: 1rem;
+}
+
+.feature-card h4 {
+  color: #2C3E50;
+  margin-bottom: 0.5rem;
+}
+
+/* Journey Timeline */
+.journey-section {
+  text-align: center;
+}
+
+.journey-section h3 {
+  font-size: 2rem;
+  color: #2C3E50;
+  margin-bottom: 2rem;
+}
+
+.journey-items {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.journey-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  width: 200px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease;
+}
+
+.journey-card:hover {
+  transform: translateY(-5px);
+}
+
+.journey-card .icon {
+  font-size: 2rem;
+  color: #8a4baf;
+  margin-bottom: 0.5rem;
+}
+
+.journey-card .year {
+  display: block;
+  font-size: 1.25rem;
+  color: #2C3E50;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+/* CTA */
+.cta-section {
+  text-align: center;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.cta-section h3 {
+  font-size: 1.75rem;
+  color: #2C3E50;
+  margin-bottom: 1rem;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: #E67E22;
+  color: white;
+  border-radius: 30px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #cf6e13;
+  transform: translateY(-3px);
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .journey-items {
+    flex-direction: column;
+    align-items: center;
   }
 }

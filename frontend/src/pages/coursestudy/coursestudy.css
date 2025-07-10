@@ -1,34 +1,69 @@
 .course-study-page {
-  padding: 50px 0;
-  background-color: #f5f5f5;
+  padding: 3rem 1rem;
+  background-color: #f4f6f8;
   display: flex;
   flex-direction: column;
   align-items: center;
   min-height: 80vh;
+  font-family: "Poppins", sans-serif;
+}
 
-  h2 {
-    font-size: 24px;
-    color: #8a4baf;
-    text-align: center;
-  }
+.course-card {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+}
 
-  h4 {
-    font-size: 21px;
-    color: #8a4baf;
-    text-align: center;
-  }
+.course-card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+}
 
-  h5 {
-    font-size: 20px;
-    color: #8a4baf;
-    text-align: center;
-  }
+.course-card h2 {
+  font-size: 1.8rem;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
 
-  a {
-    text-decoration: none;
-    background-color: white;
-    padding: 5px 10px;
-    border: 1px solid black;
-    border-radius: 5px;
-  }
+.course-card h4 {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+.course-card h5 {
+  font-size: 0.95rem;
+  color: #777;
+  margin-bottom: 0.4rem;
+}
+
+.lecture-link {
+  margin-top: 1.5rem;
+  background-color: #e67e22;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+}
+
+.lecture-link:hover {
+  background-color: #d35400;
+}
+
+.loading-message {
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  color: #2c3e50;
 }

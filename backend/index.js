@@ -11,19 +11,15 @@ const adminRoute = require("./routes/admin");
 dotenv.config();
 const PORT = process.env.PORT || 3000;
 
+app.use(cors());
 app.use(express.json());
 app.use("/uploads", express.static("uploads"));
-app.use(cors());
-
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
 
 app.use("/api", userRoute);
 app.use("/api", courseRoute);
 app.use("/api", adminRoute);
 
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+  console.log(`Server is running on port ${PORT}.`);
   connectDb();
 });

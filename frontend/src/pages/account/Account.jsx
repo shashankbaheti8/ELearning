@@ -22,14 +22,17 @@ const Account = ({ user }) => {
     <div>
       {user && (
         <div className="profile">
+          <div className="profile-avatar">
+            {user.name?.charAt(0).toUpperCase()}
+          </div>
           <h2>My Profile</h2>
+
           <div className="profile-info">
             <p>
-              <strong>Name - {user.name}</strong>
+              <strong>Name:</strong> {user.name}
             </p>
-
             <p>
-              <strong>Email - {user.email}</strong>
+              <strong>Email:</strong> {user.email}
             </p>
 
             <button
@@ -39,8 +42,6 @@ const Account = ({ user }) => {
               <MdDashboard />
               Dashboard
             </button>
-
-            <br />
 
             {user.role === "admin" && (
               <button
@@ -52,13 +53,7 @@ const Account = ({ user }) => {
               </button>
             )}
 
-            <br />
-
-            <button
-              onClick={logoutHandler}
-              className="common-btn"
-              style={{ background: "red" }}
-            >
+            <button onClick={logoutHandler} className="common-btn red">
               <IoMdLogOut />
               Logout
             </button>

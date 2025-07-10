@@ -1,24 +1,58 @@
-.loading-page {
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+.loading-wrapper {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   height: 80vh;
+  background-color: #F4F6F8;
+  font-family: 'Poppins', sans-serif;
 }
 
-.loader {
-  border: 5px solid #f3f3f3;
-  border-top: 5px solid #8a4baf;
+.loading-card {
+  background: #ffffff;
+  padding: 2rem 3rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.loading-text {
+  font-size: 1.5rem;
+  color: #2C3E50;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.bouncing-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.bouncing-dots span {
+  width: 12px;
+  height: 12px;
+  background-color: #E67E22;
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  animation: spin 2s linear infinite;
+  animation: bounce 0.6s infinite alternate;
 }
 
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
+.bouncing-dots span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.bouncing-dots span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+  from {
+    transform: translateY(0);
+    opacity: 1;
   }
-  100% {
-    transform: rotate(360deg);
+  to {
+    transform: translateY(-12px);
+    opacity: 0.5;
   }
 }

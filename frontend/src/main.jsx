@@ -4,7 +4,7 @@ import App from "./App.jsx";
 import { UserContextProvider } from "./context/UserContext.jsx";
 import { CourseContextProvider } from "./context/CourseContext.jsx";
 
-export const serverURL = "https://elearning-backend-ck86.onrender.com";
+export const serverURL = import.meta.env.VITE_BACKEND_URL
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
